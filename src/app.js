@@ -4,6 +4,8 @@ const weather = require("../src/utils.js/weather");
 const express = require("express");
 const hbs = require("hbs");
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 //seting up hbs engine, and then point to the views folder path
 app.set("view engine", "hbs");
@@ -90,4 +92,4 @@ app.get("*", (req, res) => {
     });
 });
 
-app.listen(3000);
+app.listen(port);

@@ -27,16 +27,16 @@ form.addEventListener("submit", (e) => {
     const location = formInput.value;
     message1.textContent = "Loading..";
     message2.textContent = "";
-    fetch(
-        "http://localhost:3000/weather/?address=" + encodeURIComponent(location)
-    ).then((response) => {
-        response.json().then((data) => {
-            if (data.error) {
-                message1.textContent = data.error;
-            } else {
-                message1.textContent = data.location;
-                message2.textContent = data.forecast;
-            }
-        });
-    });
+    fetch("/weather/?address=" + encodeURIComponent(location)).then(
+        (response) => {
+            response.json().then((data) => {
+                if (data.error) {
+                    message1.textContent = data.error;
+                } else {
+                    message1.textContent = data.location;
+                    message2.textContent = data.forecast;
+                }
+            });
+        }
+    );
 });
